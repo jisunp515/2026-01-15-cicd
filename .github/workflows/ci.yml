@@ -3,6 +3,8 @@ name: My CI # give name for this *.yml file
 on: # This *.yml file executes the jobs whenever the command below 'push' is executed
   push:
     branches: [main] # jobs below are run when push to main branch is made
+  pull_request:
+  workflow_dispatch:
 
 jobs:
   hello:
