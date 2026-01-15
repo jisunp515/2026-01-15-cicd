@@ -1,13 +1,13 @@
-name: My CI
+name: My CI # give name for this *.yml file
 
-on:
+on: # This *.yml file executes the jobs whenever the command below 'push' is executed
   push:
-    branches: [main]
+    branches: [main] # jobs below are run when push to main branch is made
 
 jobs:
   hello:
     name: Hello job
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest # specify which platform to run the steps on
     steps:
       - name: My first step
-      - run: echo "Hello World!"
+        run: echo "Hello World!"
