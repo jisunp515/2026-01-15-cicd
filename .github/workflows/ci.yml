@@ -16,7 +16,13 @@ jobs:
     name: Run tests
     runs-on: ubuntu-latest
     steps:
+      - name: Check out repo # without this, as CI starts with blank repo, it never locates pyproject.toml file
+        uses: actions/checkout@v6 # github action: can be actions/checkout@[v6,branch_name]
+      - name: Install Python 
+        uses: actions/setup-python@v6 # install specific version of Python package
+        with:
+          python-version: '3.13'
       - name: Install Python package
-        run: pip install .[test] # comes from pyproject.yoml
+        run: pip install .[test] # comes from pyproject.toml
       - name: Run test
         run: pytest -vv # verbose as possible
